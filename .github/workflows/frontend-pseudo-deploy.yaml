@@ -1,0 +1,14 @@
+name: frontend-pseudo-deploy
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: 
+ pull_request_review:
+    types: [ submitted ]
+    paths:
+      - 'apps/frontend/**'
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: deployment
+        run: echo deploying frontend

@@ -1,0 +1,14 @@
+name: backend-pseudo-deploy
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: 
+ pull_request_review:
+    types: [ submitted ]
+    paths:
+      - 'apps/backend/**'
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: deployment
+        run: echo deploying backend
