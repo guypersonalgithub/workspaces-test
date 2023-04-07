@@ -11,5 +11,6 @@ jobs:
         fetch-depth: 0
       - name: testing
         run: echo ${{ github.event.pull_request.base.ref }}
+        run: echo ${{ github.event.pull_request.head.sha }}
       - name: Get base branch
         run: echo "base-branch = ${{ github.event.pull_request.base.ref }}" >> $GITHUB_STATE
