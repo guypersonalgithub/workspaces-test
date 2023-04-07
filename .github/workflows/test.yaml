@@ -15,3 +15,8 @@ jobs:
         run: echo ${{ github.event.pull_request.head.sha }}
       - name: Get base branch
         run: echo "base-branch = ${{ github.event.pull_request.base.ref }}" >> $GITHUB_STATE
+        id: base-branch
+      - name: Get changed files
+        run: |
+          CHANGED_FILES=$(git diff --name-only ${{ steps.base-branch.outputs.base-branch }}...${{ github.event.pull_request.head.sha }})
+          echo "Changed files: $CHANGED_FILES"
