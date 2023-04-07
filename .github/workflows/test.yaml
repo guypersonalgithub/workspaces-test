@@ -6,7 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+        ref: ${{ github.event.pull_request.head.sha }}
+        fetch-depth: 0
       - name: testing
-        run: echo ${{ github.event.pull_request }}
+        run: echo ${{ github.event.pull_request.base.ref }}
       - name: Get base branch
         run: echo "base-branch = ${{ github.event.pull_request.base.ref }}" >> $GITHUB_STATE
