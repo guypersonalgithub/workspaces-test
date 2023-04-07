@@ -1,0 +1,22 @@
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - name: testing
+        run: echo ${{ github.event.pull_request.base.ref }}
+      - name: testing2
+        run: echo ${{ github.event.pull_request.head.sha }}
+      - name: Get base branch
+        run: echo "base-branch = ${{ github.event.pull_request.base.ref }}" >> $GITHUB_STATE
+        id: base-branch
+      - name: Get changed files
+        run: |
+          CHANGED_FILES=$(git diff --name-only ${{ steps.base-branch.outputs.base-branch }}...${{ github.event.pull_request.head.sha }})
+          echo "Changed files: $CHANGED_FILES"

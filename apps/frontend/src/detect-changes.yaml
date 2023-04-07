@@ -1,0 +1,26 @@
+# name: detect-changes-in-pull-request
+
+# on:
+#   pull_request:
+#     types: [opened, reopened, synchronize]
+
+# jobs:
+#   detect-changes:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+#         with: 
+#           node-version: "16"
+#       - name: test
+#         run: echo "hello"
+#       # - name: Get base branch
+#       #   run: echo "::set-output name=base-branch::${{ github.event.pull_request.base.ref }}"
+#       #   id: base-branch
+#       # - name: Get changed files
+#       #   run: |
+#       #     CHANGED_FILES=$(git diff --name-only ${{ steps.base-branch.outputs.base-branch }}...${{ github.event.pull_request.head.sha }})
+#       #     echo "Changed files: $CHANGED_FILES"
+#       #   id: files
+#       # - name: Set output
+#       #   run: echo "::set-output name=changed-files::$CHANGED_FILES"

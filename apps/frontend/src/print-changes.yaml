@@ -1,0 +1,17 @@
+# name: run-tests-on-pull-request
+
+# on:
+#   pull_request:
+#     types: [opened, reopened, synchronize]
+
+# jobs:
+#   run-tests:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+#       - name: Get changed files
+#         id: files
+#         uses: path/to/detect-changes-in-pull-request/action.yml
+#       - name: Run tests
+#         run: echo ${{ steps.files.outputs.changed-files }}
