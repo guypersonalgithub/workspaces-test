@@ -1,8 +1,8 @@
 name: frontend-pseudo-deploy
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: 
- pull_request:
-    types: [ push ]
+  pull_request:
+  types: [opened, synchronize]
     paths:
       - 'apps/frontend/**'
 jobs:
