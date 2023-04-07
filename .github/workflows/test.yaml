@@ -6,7 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
         -run: echo "hello"
+      - name: Get base branch
+        run: echo "::set-output name=base-branch::${{ github.event.pull_request.base.ref }}"
