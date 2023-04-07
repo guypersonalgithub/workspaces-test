@@ -2,7 +2,7 @@ name: backend-pseudo-deploy
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: 
  pull_request_review:
-    types: [ push ]
+    types: [ submitted ]
     paths:
       - 'apps/backend/**'
 jobs:
