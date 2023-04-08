@@ -1,0 +1,20 @@
+name: backend-pseudo-deploy
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: 
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - 'apps/backend/**'
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: key
+        run: echo ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+      - name: runner
+        run: echo ${{ runner.os }}
+      - name: build
+        run: echo build-${{ env.cache-name }}
+      - name: hash
+        run: ${{ hashFiles('**/package-lock.json') }}

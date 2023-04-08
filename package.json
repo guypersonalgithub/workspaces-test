@@ -3,5 +3,13 @@
   "version": "1.0.0",
   "workspaces": [
     "apps/*"
-  ]
+  ],
+  "scripts": {
+    "frontend-dev": "cd apps/frontend && npm run dev",
+    "backend-dev": "cd apps/backend && npm run start",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0"
+  }
 }
