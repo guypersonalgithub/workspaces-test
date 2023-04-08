@@ -17,4 +17,4 @@ jobs:
       - name: build
         run: echo build-${{ env.cache-name }}
       - name: hash
-        run: ${{ hashFiles('**/package-lock.json') }}
+        run: echo ${{ hashFiles('**/package-lock.json') }}
